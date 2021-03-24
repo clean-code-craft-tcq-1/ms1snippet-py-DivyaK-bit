@@ -13,6 +13,7 @@ def validate_charging_parameter_reading(values, delta_value):
 
 def If_Empty(value_list, delta_value):
   if len(value_list) == 0:
+    print("list is empty")
     return False
   else:
     return validate_charging_parameter_reading(value_list, delta_value)
