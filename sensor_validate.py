@@ -1,19 +1,19 @@
 
-def  _give_me_a_good_name(value, nextValue, maxDelta):
+def  Check_Range(value, nextValue, maxDelta):
   if nextValue - value > maxDelta:
     return False
   return True
 
-def validate_soc_reading(values):
+def validate_charging_parameter_reading(values, delta_value):
   last_but_one_reading = len(values) - 1
   for i in range(last_but_one_reading):
-    if(not _give_me_a_good_name(values[i], values[i + 1], 0.05)):
+    if(not Check_Range(values[i], values[i + 1], delta_value)):
       return False
-  return True
+    return True
 
-def validate_current_reading(values):
-  last_but_one_reading = len(values) - 1
-  for i in range(last_but_one_reading):
-    if(not _give_me_a_good_name(values[i], values[i + 1], 0.1)):
-      return False
-  return True
+def If_Empty(value_list, delta_value):
+  if len(value_list) == 0:
+    print("list is empty")
+    return False
+  else:
+    return validate_charging_parameter_reading(value_list, delta_value)
